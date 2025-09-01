@@ -1,0 +1,114 @@
+// Create an empty Map
+const myMap = new Map();
+
+// Create a Map with initial key-value pairs
+const initialMap = new Map([
+  ['name', 'Vikas'],
+  [1, 'one'],
+  [true, 'boolean key'],
+  [{ id: 1 }, 'object key']
+]);
+
+console.log(initialMap);
+// Output: Map(4) { "name" => "Alice", 1 => "one", true => "boolean key", { id: 1 } => "object key" }
+
+const myMap = new Map();
+
+// Add key-value pairs
+myMap.set('name', 'Vikas');
+myMap.set(42, 'answer');
+myMap.set({ id: 1 }, 'object');
+
+// Retrieve values
+console.log(myMap.get('name')); // Output: Vikas
+console.log(myMap.get(42)); // Output: answer
+console.log(myMap.get({ id: 1 })); // Output: undefined (object references differ)
+
+// Checking size and existence
+const myMap = new Map([
+  ['a', 1],
+  ['b', 2],
+  ['c', 3]
+]);
+
+console.log(myMap.size); // Output: 3
+console.log(myMap.has('b')); // Output: true
+console.log(myMap.has('d')); // Output: false
+
+
+// To retrieve with an object key, use the same reference
+const objKey = { id: 1 };
+myMap.set(objKey, 'object');
+console.log(myMap.get(objKey)); // Output: object
+
+// You can iterate over a Map using for...of with keys(), values(), or entries(), or use forEach
+const myMap = new Map([
+  ['apple', 1],
+  ['banana', 2],
+  ['orange', 3],
+  ['Mango', 4]
+]);
+
+// Iterate over entries using of 
+for (const [key, value] of myMap.entries()) {
+  console.log(`${key}: ${value}`);
+}
+// Output:
+// apple: 1
+// banana: 2
+// orange: 3
+// Mango: 4
+
+// Iterate over keys using .keys()
+for (const key of myMap.keys()) {
+  console.log(key);
+}
+// Output: apple, banana, orange, Mango
+
+// Iterate over values using .values()
+for (const value of myMap.values()) {
+  console.log(value);
+}
+// Output: 1, 2, 3, 4
+
+// Using forEach
+myMap.forEach((value, key) => {
+  console.log(`${key} = ${value}`);
+});
+// Output:
+// apple = 1
+// banana = 2
+// orange = 3
+// Mango = 4
+
+// To delete entries using .delete and .clear()
+const myMap = new Map([
+  ['x', 10],
+  ['y', 20],
+  ['z', 30]
+]);
+
+myMap.delete('x');
+console.log(myMap.has('x')); // Output: false
+console.log(myMap.size); // Output: 2
+
+myMap.clear();
+console.log(myMap.size); // Output: 0
+
+// Difference between map() and Object 
+
+// Using Map
+const map = new Map();
+map.set('toString', 'custom toString');
+console.log(map.get('toString')); // Output: custom toString
+
+// Using Object
+const obj = {};
+obj.toString = 'custom toString';
+console.log(obj.toString); // Output: [Function: toString] (Object.prototype.toString overrides)
+// In this case, Map avoids conflicts with built-in properties like toString.
+
+
+
+
+
